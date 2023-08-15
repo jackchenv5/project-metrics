@@ -11,15 +11,20 @@ const routes = [
   {
     path: '/messages',
     name: 'messages',
-    component: import('../components/Messages.vue')
+    component: () => import('../components/Messages.vue')
   },
-  {
-    path: '/users',
-    component: User,
+  {path:'/layout',
+   name:'ele-layout',
+   component: ()=>import('../components/Layout.vue')
   },
-  {
-    path: '/ele-'
-  }
+  {path:'/ele-button',
+   name:'ele',
+   component: ()=>import('')
+  },
+  {path:'/ele-icon',
+   name:'ele',
+   component: ()=>import('')
+  },
 ]
 
 export default createRouter({
