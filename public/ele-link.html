@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <!-- Import style -->
+  <link rel="stylesheet" href="/ele-plus/index.css" />
+  <!-- Import Vue 3 -->
+  <script src="/ele-plus/vue.global.js"></script>
+  <!-- Import component library -->
+  <script src="/ele-plus/index.full.js"></script>
+  <script src="/ele-plus/index.iife.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>layout</title>
+</head>
+
+<body>
+  <div id="app">
+    <el-divider>文字链接</el-divider>
+    <el-link target="_blank">default</el-link>
+    <el-link type="primary">primary</el-link>
+    <el-link type="success">success</el-link>
+    <el-link type="danger">danger</el-link>
+    <el-link type="info">info</el-link>
+    <el-divider>图标链接</el-divider>
+    <el-link :icon="Edit">Edit</el-link>
+    <el-link> Check<el-icon class="el-icon--right">
+        <icon-view />
+      </el-icon>
+    </el-link>
+
+  </div>
+  <script>
+    const toRefs = Vue.toRefs;
+    const ref = Vue.ref;
+    const app = Vue.createApp({
+      setup () {
+      }
+    });
+    app.use(ElementPlus);
+    for (const [key, value] of Object.entries(ElementPlusIconsVue)) {
+      app.component(key, value)
+    }
+    app.mount("#app");
+  </script>
+</body>
+
+</html>
+<style>
+  .el-link {
+    margin-right: 20px;
+  }
+</style>
