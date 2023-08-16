@@ -5,7 +5,7 @@
   "repository": "https://gitee.com/chenchengf/django-vue3-element-plus.git",
   "license": "MIT",
   "scripts": {
-    "dev": "vite --mode development --host 192.168.224.8",
+    "dev": "vite --mode development ",
     "build:beta": "vite build --mode beta",
     "build:release": "vite build --mode release",
     "serve": "vite preview"
