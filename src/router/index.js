@@ -17,6 +17,14 @@ const routes = [
    name:'ele-layout',
    component: ()=>import('../components/Layout.vue')
   },
+  {path:'/echart-bar',
+   name:'echart-bar',
+      component: () => import('../components/EchartBar.vue')
+  },
+  {path:'/echart-pie',
+   name:'echart-pie',
+      component: () => import('../components/EchartPie.vue')
+  },
   {path:'/ele-button',
    name:'ele',
    component: ()=>import('')
