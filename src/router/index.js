@@ -13,25 +13,40 @@ const routes = [
     name: 'messages',
     component: () => import('../components/Messages.vue')
   },
-  {path:'/layout',
-   name:'ele-layout',
-   component: ()=>import('../components/Layout.vue')
+  {
+    path: '/layout',
+    name: 'ele-layout',
+    component: () => import('../components/Layout.vue')
   },
-  {path:'/echart-bar',
-   name:'echart-bar',
-      component: () => import('../components/EchartBar.vue')
+  {
+    path: '/button',
+    name: 'button',
+    component: () => import('../components/Button.vue')
   },
-  {path:'/echart-pie',
-   name:'echart-pie',
-      component: () => import('../components/EchartPie.vue')
+  {
+    path: '/icon',
+    name: 'ele',
+    component: () => import('../components/Icon.vue')
   },
-  {path:'/ele-button',
-   name:'ele',
-   component: ()=>import('')
+  {
+    path: '/echart-bar',
+    name: 'echart-bar',
+    component: () => import('../components/EchartBar.vue')
   },
-  {path:'/ele-icon',
-   name:'ele',
-   component: ()=>import('')
+  {
+    path: '/echart-pie',
+    name: 'echart-pie',
+    component: () => import('../components/EchartPie.vue')
+  },
+  {
+    path: '/ele-button',
+    name: 'ele',
+    component: () => import('')
+  },
+  {
+    path: '/ele-icon',
+    name: 'ele',
+    component: () => import('')
   },
 ]
 
