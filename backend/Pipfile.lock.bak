@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "30673a9ae8fd33782c058287d215fade20b92afb07510a01dfe85fd5d0d1b749"
+            "sha256": "3bc9519236d4100bbd363926dd1298cf2d2b25addbadaea7e759d0f18c589968"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -10,7 +10,7 @@
         "sources": [
             {
                 "name": "pypi",
-                "url": "https://pypi.tuna.tsinghua.edu.cn/simple",
+                "url": "https://pypi.org/simple",
                 "verify_ssl": true
             }
         ]
@@ -26,11 +26,11 @@
         },
         "dj-database-url": {
             "hashes": [
-                "sha256:04bc34b248d4c21aaa13e4ab419ae6575ef5f10f3df735ce7da97722caa356e0",
-                "sha256:f2042cefe1086e539c9da39fad5ad7f61173bf79665e69bf7e4de55fa88b135f"
+                "sha256:9c9e5f7224f62635a787e9cc3c6762c9be2b19541a21e3c08fa573bd01609b4b",
+                "sha256:a35a9f0f43775ca6f90d819dc456233ef7bcc76b47377d5d908b75c7eb320624"
             ],
             "index": "pypi",
-            "version": "==2.1.0"
+            "version": "==2.0.0"
         },
         "django": {
             "hashes": [
