@@ -65,7 +65,7 @@
             <el-menu-item index="7"><a href="." target="_blank">配置</a></el-menu-item>
             <div class="flex-grow" />
             <el-menu-item index="8">
-              <el-avatar src="/img/Koala.jpg"></el-avatar>
+              <el-avatar src="/img/cc.jpg"></el-avatar>
               <el-text type="info" style="margin-left:3px">退出</el-text>
             </el-menu-item>
           </el-menu>
