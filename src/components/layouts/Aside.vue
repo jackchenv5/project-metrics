@@ -1,7 +1,7 @@
 <template>
-  <el-aside class="aside">
+  <el-aside class="aside" >
     <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
-      :collapse="isCollapse" background-color="#304156" text-color="#fff" active-text-color="#ffd04b">
+      :collapse="isCollapse" :background-color="asideBgColor" text-color="#fff" active-text-color="#ffd04b">
       <el-sub-menu index="1">
         <template #title>
           <el-icon>
@@ -43,7 +43,8 @@
   </el-aside>
 </template>
 <script setup>
-  const props = defineProps({ 'isCollapse': Boolean })
+// const props = defineProps({ 'isCollapse': Boolean,'asideBgColor':String })
+const props = defineProps({ 'isCollapse': Boolean,'asideBgColor':String })
   function handleOpen (key, keyPath) {
     console.log(key, keyPath)
   }
@@ -51,3 +52,11 @@
     console.log(key, keyPath)
   }
 </script>
+<style>
+
+  .aside {
+    width: auto;
+    border-right: solid 1px #dcdfe6;
+    border-bottom: 5px solid rgb(205, 210, 216);
+  }
+</style>
