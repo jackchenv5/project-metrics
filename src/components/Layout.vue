@@ -1,47 +1,6 @@
 <template>
   <el-container>
-    <el-aside class="aside">
-      <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
-        :collapse="isCollapse" background-color="#304156" text-color="#fff" active-text-color="#ffd04b">
-        <el-sub-menu index="1">
-          <template #title>
-            <el-icon>
-              <Avatar />
-            </el-icon>
-            <span>用户</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="1-1">编译</el-menu-item>
-            <el-menu-item index="1-2">CI</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group>
-            <el-menu-item index="1-3">个人CI</el-menu-item>
-          </el-menu-item-group>
-          <el-sub-menu index="1-4">
-            <template #title>密码</template>
-            <el-menu-item index="1-4-1">修改密码</el-menu-item>
-          </el-sub-menu>
-        </el-sub-menu>
-        <el-menu-item index="2">
-          <el-icon>
-            <Promotion />
-          </el-icon>
-          <span>详情</span>
-        </el-menu-item>
-        <el-menu-item index="3">
-          <el-icon>
-            <Histogram />
-          </el-icon>
-          <span>统计</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <el-icon>
-            <Tools />
-          </el-icon>
-          <span>配置</span>
-        </el-menu-item>
-      </el-menu>
-    </el-aside>
+    <Aside v-if="isAside" :is-collapse="isCollapse" />
     <el-container>
       <div class="header">
         <el-header>
@@ -77,6 +36,11 @@
           <el-radio-button :label="false">展开</el-radio-button>
           <el-radio-button :label="true">收起</el-radio-button>
         </el-radio-group>
+        <el-divider>侧边栏控制</el-divider>
+        <el-radio-group v-model="isAside" style="margin-bottom: 20px">
+          <el-radio-button :label="false">无</el-radio-button>
+          <el-radio-button :label="true">有</el-radio-button>
+        </el-radio-group>
       </el-main>
       <el-footer></el-footer>
     </el-container>
@@ -85,18 +49,14 @@
 
 <script setup>
   import { ref } from 'vue'
+  import Aside from './layouts/Aside.vue'
   const isCollapse = ref(true)
-  function handleOpen (key, keyPath) {
-    console.log(key, keyPath)
-  }
-  function handleClose (key, keyPath) {
-    console.log(key, keyPath)
-  }
+  const isAside = ref(true)
+  let activeIndex = ref('1')
+  let activeIndex2 = ref('1')
   function handleSelect (key, keyPath) {
     console.log(key, keyPath)
   }
-  let activeIndex = ref('1')
-  let activeIndex2 = ref('1')
 </script>
 <style>
   .aside {
