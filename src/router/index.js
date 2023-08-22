@@ -4,7 +4,7 @@ const routes = [
   {
     //展示store例子
     path: '/store',
-    component: () =>import('../components/Store.vue'),
+    component: () => import('../components/Store.vue'),
   },
   {
     //展示store/modules axios django后端 的例子
@@ -31,6 +31,12 @@ const routes = [
     component: () => import('../components/Icon.vue')
   },
   {
+    //反馈组件
+    path: '/feedback',
+    name: 'feedback',
+    component: () => import('../components/Feedback.vue')
+  },
+  {
     //展示 echarts bar
     path: '/echart-bar',
     name: 'echart-bar',
@@ -45,7 +51,7 @@ const routes = [
 ]
 
 export default createRouter({
-//采用hash路由方式，#
+  //采用hash路由方式，#
   history: createWebHashHistory(),
   routes,
 })
