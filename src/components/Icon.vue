@@ -3,6 +3,7 @@
     <li v-for="(Icon,key) in icons" class="icon-item">
       <span class="icon-content">
         <i class="el-icon" style="font-size:30px;">
+          <!-- :is 属性加载组件 Icon为组件实例 -->
           <component :is='Icon' :key="key" class="icon" />
         </i>
         <span class="icon-name">{{ key }}</span>
