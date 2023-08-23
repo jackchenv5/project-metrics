@@ -3,14 +3,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 const routes = [
   {
     //展示store例子
-    path: '/store',
-    component: () => import('../components/Store.vue'),
-  },
-  {
-    //展示store/modules axios django后端 的例子
-    path: '/messages',
-    name: 'messages',
-    component: () => import('../components/Messages.vue')
+    path: '/',
+    component: () => import('../components/Home.vue'),
   },
   {
     //展示element ui plus 布局的例子
@@ -47,6 +41,17 @@ const routes = [
     path: '/echart-pie',
     name: 'echart-pie',
     component: () => import('../components/EchartPie.vue')
+  },
+  {
+    //展示store例子
+    path: '/store',
+    component: () => import('../components/Store.vue'),
+  },
+  {
+    //展示store/modules axios django后端 的例子
+    path: '/messages',
+    name: 'messages',
+    component: () => import('../components/Messages.vue')
   },
 ]
 
