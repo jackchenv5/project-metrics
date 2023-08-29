@@ -4,7 +4,7 @@ import { createApp } from 'vue'
 // 引入element-plus 全局css，可自定制
 import 'element-plus/dist/index.css'
 
-// 引入根节点，通过mount方式挂载
+// 引入根节点，并通过mount方式挂载
 import App from './App.vue'
 
 // 引入router对象

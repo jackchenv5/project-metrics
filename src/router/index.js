@@ -1,13 +1,14 @@
+//
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
   {
-    //展示store例子
+    //首页
     path: '/',
     component: () => import('../components/Home.vue'),
   },
   {
-    //展示element ui plus 布局的例子
+    //展示element ui plus 布局 的例子
     path: '/layout',
     name: 'ele-layout',
     component: () => import('../components/Layout.vue')

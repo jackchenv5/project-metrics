@@ -10,6 +10,7 @@
       </span>
     </li>
   </ul>
+  <AddLocation />
 </template>
 
 <script lang="ts" setup>

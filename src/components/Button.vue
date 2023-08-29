@@ -1,3 +1,4 @@
+<!-- element-plus 使用button的标准方法 -->
 <template>
   <el-divider>普通按钮</el-divider>
   <el-row>
@@ -9,6 +10,7 @@
     <el-button type="danger">danger</el-button>
   </el-row>
   <el-divider>淡色按钮(plain)</el-divider>
+  <!-- 添加plain属性 -->
   <el-row>
     <el-button plain>default</el-button>
     <el-button plain type="primary">primary</el-button>
@@ -18,6 +20,7 @@
     <el-button plain type="danger">danger</el-button>
   </el-row>
   <el-divider>使能</el-divider>
+  <!-- 添加disabled属性 -->
   <el-row>
     <el-button disabled plain>default</el-button>
     <el-button disabled plain type="primary">primary</el-button>
@@ -27,6 +30,7 @@
     <el-button disabled plain type="danger">danger</el-button>
   </el-row>
   <el-divider>圆角按钮(round)</el-divider>
+  <!-- 添加round属性 -->
   <el-row>
     <el-button round>default</el-button>
     <el-button round type="primary">primary</el-button>
@@ -36,6 +40,7 @@
     <el-button round type="danger">danger</el-button>
   </el-row>
   <el-divider>link text</el-divider>
+  <!-- 添加link属性 -->
   <el-row>
     <el-button link plain>default</el-button>
     <el-button link plain type="primary">primary</el-button>

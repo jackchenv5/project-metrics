@@ -5,15 +5,17 @@
       <el-link target="_blank" type="info" href="#/layout">框架</el-link>
       <el-link target="_blank" type="success" href="#/button">按钮库</el-link>
       <el-link target="_blank" type="primary" href="#/icon">图标库</el-link>
+      <el-link target="_blank" type="warning" href="#/feedback">FeedBack</el-link>
       <el-link target="_blank" type="danger" href="#/echart-pie">饼图</el-link>
       <el-link target="_blank" type="info" href="#/echart-bar">柱状图</el-link>
       <el-link target="_blank" type="primary" href="#/store">Store示例</el-link>
-      <el-link target="_blank" type="danger" href="#/message">后端通信</el-link>
+      <el-link target="_blank" type="danger" href="#/messages">后端通信</el-link>
     </el-header>
     <el-main class="main">
       <div class="slog">
         <h1>Django Vue3 </h1>
         <p style="font-size:16px;color:#606266">基于Vue 3 Element plus，面向最前沿的前端技术栈</p>
+        <p style="font-size:12px;color:#606266"><strong>脚踏实地·砥砺前行</strong></p>
       </div>
       <div class="box">
         <div class="bg2"></div>
