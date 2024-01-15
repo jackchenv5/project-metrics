@@ -1,15 +1,15 @@
 <template>
   <el-container>
     <el-header class="head">
-      <el-link target="_blank" href="/" class="select">看板系统</el-link>
-      <el-link target="_blank" href="/layout">我的面板</el-link>
-      <el-link target="_blank" href="/button">数据指标</el-link>
-      <el-link target="_blank" href="/icon">质量评审</el-link>
-      <el-link target="_blank" href="/feedback">研发预算</el-link>
-      <el-link target="_blank" href="/echart-pie">投入分析</el-link>
-      <el-link target="_blank" href="/echart-bar">项目跟踪</el-link>
-      <el-link target="_blank" href="/store">报表大屏</el-link>
-      <el-link target="_blank" href="/messages">管理</el-link>
+      <el-link target="_blank" type="success" href="#/">Home</el-link>
+      <el-link target="_blank" type="info" href="#/layout">框架</el-link>
+      <el-link target="_blank" type="success" href="#/button">按钮库</el-link>
+      <el-link target="_blank" type="primary" href="#/icon">图标库</el-link>
+      <el-link target="_blank" type="warning" href="#/feedback">FeedBack</el-link>
+      <el-link target="_blank" type="danger" href="#/echart-pie">饼图</el-link>
+      <el-link target="_blank" type="info" href="#/echart-bar">柱状图</el-link>
+      <el-link target="_blank" type="primary" href="#/store">Store示例</el-link>
+      <el-link target="_blank" type="danger" href="#/messages">后端通信</el-link>
     </el-header>
     <el-main class="main">
       <div class="slog">
@@ -26,10 +26,6 @@
   </el-container>
 </template>
 <style>
-  .select {
-    background-color: #88888d;
-  }
-
   .slog {
     font-size: 35px;
     line-height: 20px;
@@ -37,23 +33,15 @@
   }
 
   .el-link {
-    color: white;
     font-size: 18px;
     margin-right: 8px;
-    padding: 0px 10px;
-  }
-
-  .el-link:hover {
-    color: antiquewhite;
-    border-bottom: 1px solid white;
   }
 
   .head {
-    background-color: black;
     display: flex;
     justify-content: start;
-    border-bottom: 1px solid #dcdfe6;
-    border-top: 1px solid #dcdfe6;
+    border-bottom: 1px solid #ec215e;
+    border-top: 1px solid #024bf3;
   }
 
   .main {

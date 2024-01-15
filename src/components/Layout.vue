@@ -1,8 +1,9 @@
 <template>
   <el-container>
-    <Aside v-if="isAside" :is-collapse="isCollapse" :style="{backgroundColor:asideColor}" :aside-bg-color="asideColor"/>
+    <Aside v-if="isAside" :is-collapse="isCollapse" :style="{backgroundColor:asideColor}"
+      :aside-bg-color="asideColor" />
     <el-container>
-        <Header />
+      <Header />
       <el-main class="main">
         <el-divider>系统布局</el-divider>
         <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
@@ -23,29 +24,27 @@
 </template>
 
 <script setup>
-  import { ref,reactive } from 'vue'
+  import { ref, reactive } from 'vue'
   import Aside from './layouts/Aside.vue'
   import Header from './layouts/Header.vue'
-  const headerColors= ["#409eff","#444950","#191a23"]
-const asideColors = ["#6e90b5", "#444950","#191a23","##bfbf60"]
-let headerColor = ref("")
-let asideColor = ref("#444")
+  const headerColors = ["#409eff", "#444950", "#191a23"]
+  const asideColors = ["#6e90b5", "#444950", "#191a23", "##bfbf60"]
+  let headerColor = ref("")
+  let asideColor = ref("#444")
 
-  let  count = 0
+  let count = 0
   const isCollapse = ref(true)
   const isAside = ref(true)
-function changeTheme() {
-    if (count == headerColors.length -1 ) { count = 0; } else {
-        count++;
+  function changeTheme () {
+    if (count == headerColors.length - 1) { count = 0; } else {
+      count++;
     }
-        asideColor=asideColors[count]
-        console.log(count)
-        console.log(headerColor,asideColor)
-}
+    asideColor = asideColors[count]
+    console.log(count)
+    console.log(headerColor, asideColor)
+  }
 </script>
 <style>
-
-
   .el-menu-vertical-demo {
     border-right: unset;
   }
