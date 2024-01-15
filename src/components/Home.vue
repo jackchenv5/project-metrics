@@ -2,14 +2,14 @@
   <el-container>
     <el-header class="head">
       <el-link target="_blank" href="/" class="select">看板系统</el-link>
-      <el-link target="_blank" href="/layout">我的面板</el-link>
-      <el-link target="_blank" href="/button">数据指标</el-link>
-      <el-link target="_blank" href="/icon">质量评审</el-link>
-      <el-link target="_blank" href="/feedback">研发预算</el-link>
-      <el-link target="_blank" href="/echart-pie">投入分析</el-link>
-      <el-link target="_blank" href="/echart-bar">项目跟踪</el-link>
-      <el-link target="_blank" href="/store">报表大屏</el-link>
-      <el-link target="_blank" href="/messages">管理</el-link>
+      <el-link target="_blank" href="/">我的面板</el-link>
+      <el-link target="_blank" href="/">数据指标</el-link>
+      <el-link target="_blank" href="/">质量评审</el-link>
+      <el-link target="_blank" href="/">研发预算</el-link>
+      <el-link target="_blank" href="/">投入分析</el-link>
+      <el-link target="_blank" href="/project">项目跟踪</el-link>
+      <el-link target="_blank" href="/">报表大屏</el-link>
+      <el-link target="_blank" href="/">管理</el-link>
     </el-header>
     <el-main class="main">
       <div class="slog">

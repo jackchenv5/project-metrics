@@ -9,6 +9,12 @@ const routes = [
   },
   {
     //展示element ui plus 布局 的例子
+    path: '/project',
+    name: 'project',
+    component: () => import('../components/Project.vue')
+  },
+  {
+    //展示element ui plus 布局 的例子
     path: '/layout',
     name: 'ele-layout',
     component: () => import('../components/Layout.vue')
