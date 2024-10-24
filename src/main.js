@@ -9,9 +9,10 @@ import App from './App.vue'
 
 // 引入router对象
 import routers from './router/index'
-
+import router from './router'
 //引入全局状态管理对象
-import store from './store/index'
+// import store from './store/index'
+import { createPinia } from 'pinia'
 
 //引入element-plus
 import ElementPlus from 'element-plus'
@@ -28,7 +29,8 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 }
 
 //注册全局组件，该项目中直接使用，无需导入
-app.use(routers)
-app.use(store)
+app.use(createPinia())
+app.use(router)
+// app.use(store)
 app.use(ElementPlus)
 app.mount('#app')

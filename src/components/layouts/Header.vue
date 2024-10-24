@@ -1,41 +1,98 @@
 <template>
-  <div class="header">
-    <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect"
-      background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" :ellipsis="false">
-      <el-menu-item index="1">编译中心</el-menu-item>
-      <el-sub-menu index="2">
-        <template #title>编译</template>
-        <el-menu-item index="2-1">任务</el-menu-item>
-        <el-menu-item index="2-2">结果</el-menu-item>
-        <el-menu-item index="2-3">版本流</el-menu-item>
-      </el-sub-menu>
-      <el-sub-menu index="3">
-        <template #title>CI</template>
-        <el-menu-item index="3-1">版本级</el-menu-item>
-        <el-menu-item index="3-2">变更级</el-menu-item>
-      </el-sub-menu>
-      <el-menu-item index="4">静态检查</el-menu-item>
-      <el-menu-item index="5">PKG打包</el-menu-item>
-      <el-menu-item index="6">统计</el-menu-item>
-      <el-menu-item index="7"><a href="." target="_blank">配置</a></el-menu-item>
-      <div class="flex-grow" />
-      <el-menu-item index="8">
-        <el-avatar src="/images/cc.jpg"></el-avatar>
-        <el-text type="info" style="margin-left:3px">退出</el-text>
-      </el-menu-item>
-    </el-menu>
-  </div>
+  <nav class="nav-title">
+    <div class="navbar-header">
+      <a class="navbar-brand" herf="/">
+      <span style="font-family: Consolas;font-size: 24px;font-weight: bold;letter-spacing: 4px;color: #ffffff;">看板系统</span>
+    </a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li> <a class="nav-item" href="/myself">我的面板</a></li>
+        <li> <a class="nav-item" href="/myself">数据指标</a></li>
+        <li> <a class="nav-item" href="/myself">质量看板</a></li>
+        <li> <a class="nav-item" href="/myself">预算和投入</a></li>
+        <li> <a class="nav-item" href="/myself">项目跟踪</a></li>
+        <li class="active"> <a class="nav-item " href="/software-cycle">项目度量</a></li>
+        <li> <a class="nav-item" href="/myself">任务管理</a></li>
+        <li> <a class="nav-item" href="/myself">报表大屏</a></li>
+        <li> <a class="nav-item" href="/myself">管理</a></li>
+      </ul>
+    </div>
+  </nav>
 </template>
-<script setup>
-  import { ref } from 'vue'
-  let activeIndex2 = ref('1')
-  function handleSelect (key, keyPath) {
-    console.log(key, keyPath)
-  }
+<script lang="ts" setup>
 </script>
-<style>
-  .header {
-    border-top: 4px solid rgb(48, 65, 86);
-    border-bottom: 2px solid rgb(205, 210, 216);
-  }
+
+<style scoped>
+.nav-title {
+  height: 51px;
+  background: #272727;
+  border-color: #e7e7e7;
+  top:0;
+  border-width: 0 0 1px;
+  border:1px solid transparent;
+  /* position: fixed; */
+  right: 0;
+  left: 0;
+}
+.navbar-brand {
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  /* font-size: 18px; */
+  line-height: 20px;
+}
+.navbar-header {
+  float: left;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navbar-nav {
+  float: left;
+  margin: 0;
+}
+.nav {
+  padding-left: 0;
+  list-style: none;
+}
+.nav-item {
+  color:#ffffff;
+}
+.nav > li {
+  position: relative;
+  display: block;
+  float: left;
+}
+
+
+li {
+  font-size: 15px;
+}
+ul,li {
+  list-style-type: none;
+}
+.navbar-nav>li>a {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  line-height: 30px;
+  position: relative;
+  display: block;
+  line-height: 20px
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+nav ul li.active a {
+  background-color: #555;
+  color: white;
+}
 </style>
+ss

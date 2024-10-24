@@ -4,6 +4,11 @@ import vue from '@vitejs/plugin-vue'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': '/src', // 这里是相对项目根目录的路径
+    },
+  },
   server: {
     https: false,
     proxy: {
