@@ -35,23 +35,15 @@
         </div>
         <div>
           <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
-            <el-tab-pane label="数据表" name="1">
+            <el-tab-pane label="数据表" name="first">
               <el-table :data="tableData" border style="width: 100%">
                 <el-table-column prop="date" label="Date" width="180" />
                 <el-table-column prop="name" label="Name" width="180" />
                 <el-table-column prop="address" label="Address" />
               </el-table>
             </el-tab-pane>
-            <el-tab-pane label="控制图" name="2">
+            <el-tab-pane label="散点图" name="second">
               <div ref="chartRef" :style="{ width: '100vw', height: '80vh' }">
-              </div>
-            </el-tab-pane>
-            <el-tab-pane label="盒须图" name="3">
-              <div ref="chartRef1" :style="{ width: '100vw', height: '80vh' }">
-              </div>
-            </el-tab-pane>
-            <el-tab-pane label="能力图" name="4">
-              <div ref="chartRef2" :style="{ width: '100vw', height: '80vh' }">
               </div>
             </el-tab-pane>
           </el-tabs>
@@ -69,37 +61,10 @@ import Header from '@/components/layouts/Header.vue';
 import * as echarts from 'echarts';
 
 import { reactive } from 'vue'
-
 const chartRef = ref();
-const chartRef1 = ref();
-const chartRef2 = ref();
-function calculateStats(data) {
-    if (!Array.isArray(data) || data.length === 0) {
-        throw new Error('Input must be a non-empty array');
-    }
-
-    // Calculate mean (average)
-    const mean = data.reduce((acc, val) => acc + val, 0) / data.length;
-
-    // Calculate standard deviation
-    const variance = data.reduce((acc, val) => acc + Math.pow(val - mean, 2), 0) / data.length;
-    const stdDeviation = Math.sqrt(variance);
-
-    // Calculate upper and lower control limits (3 sigma)
-    const ucl = mean + 2 * stdDeviation;
-    const lcl = mean - 2 * stdDeviation;
-
-    return {
-        mean: mean,
-        ucl: ucl,
-        lcl: lcl
-    };
-}
-
 nextTick(() => {
     let chartInstance = echarts.init(chartRef.value);
-    let data = [650, 360, 450, 480, 180, 490, 560, 500,510,600,450, 480, 900, 500, 560,504,460,540,500,460,1000];
-    let cData = calculateStats(data);
+    let data = [650, 360, 450, 480, 200, 500, 560, 820,500,600]
     const option = {
   toolbox: {
     feature: {
@@ -111,7 +76,7 @@ nextTick(() => {
   xAxis: {
     type: 'category',
     axisTick: false,
-    // data: [1, 2, 3, 4, 5, 6, 7, 8,9,10]
+    data: [1, 2, 3, 4, 5, 6, 7, 8,9,10]
   },
   tooltip: {
     trigger: 'item'
@@ -146,7 +111,7 @@ nextTick(() => {
   },
   series: [
     {
-      name: '实际值',
+      name: '实测值',
       data: data,
       type: 'line',
       label: {
@@ -154,7 +119,7 @@ nextTick(() => {
       },
       tooltip: {
         trigger: 'item',
-        formatter: '点位：{b}<br/>实际值：{c}'
+        formatter: '点位：{b}<br/>实测值：{c}'
       },
       markLine: {
         symbol: 'none',
@@ -175,6 +140,8 @@ nextTick(() => {
               color: 'red'
             }
           },
+          { name: 'LPL', yAxis: 200 },
+          { name: 'LCL', yAxis: 120 },
           
         ],
         label: {
@@ -249,6 +216,26 @@ nextTick(() => {
         // opacity: 0
       },
       smooth: true,
+
+      markPoint: {
+        tooltip: {
+          formatter: '{b}'
+        },
+        data: [
+          {
+            name: '',
+            coord: [1, 932],
+            symbolSize: 14,
+            symbol: 'circle'
+          },
+          {
+            name: '',
+            coord: [2, 901],
+            symbolSize: 14,
+            symbol: 'circle'
+          }
+        ]
+      }
     },
     {
       name: '控制线',
@@ -264,8 +251,8 @@ nextTick(() => {
         silent:true,
         symbol: 'none',
         data: [
-          { name: '标准上限', yAxis: cData.ucl },
-          { name: '标准下限', yAxis: cData.lcl }
+          { name: '标准上限', yAxis: 600 },
+          { name: '标准下限', yAxis: 80 }
         ],
         label: {
           // distance: [20, 8],
@@ -274,141 +261,64 @@ nextTick(() => {
         }
       }
     },
+    {
+      name: '异常点堆叠',
+      type: 'line',
+      symbol: 'rect',
+      color: '#d9001b',
+      smooth: true,
+
+      markPoint: {
+        tooltip: {
+          formatter: '{b}'
+        },
+        data: [
+          {
+            name: '1个点远离中心线超过3倍标准差',
+            coord: [1, 20],
+            symbolSize: 10,
+            itemStyle: {
+              color: '#ff8f00'
+            },
+            symbol: 'rect'
+          },
+          {
+            name: '连续7个点在同一侧',
+            coord: [2, 240],
+            symbolSize: 10,
+            itemStyle: {
+              color: '#1a9391'
+            },
+            symbol: 'rect'
+          },
+          {
+            name: '连续8个点在同一侧',
+            coord: [2, 120],
+            symbolSize: 10,
+            itemStyle: {
+              color: '#4643bb'
+            },
+            symbol: 'rect'
+          },
+          {
+            name: '连续9个点在同一侧',
+            coord: [3, 360],
+            symbolSize: 10,
+            itemStyle: {
+              color: '#610c8c'
+            },
+            symbol: 'rect'
+          }
+        ]
+      }
+    }
   ]
 };
 
 
   // 绘制图表
     chartInstance.setOption(option);
-
-  //chart2
-  let chartInstance1 = echarts.init(chartRef1.value);
-  var option1 = {
-  title: [
-    {
-      text: '盒须图',
-      left: 'center'
-    },
-    {
-      text: '上线值: Q3 + 1.5 * IQR \n下限值: Q1 - 1.5 * IQR',
-      borderColor: '#999',
-      borderWidth: 1,
-      textStyle: {
-        fontWeight: 'normal',
-        fontSize: 14,
-        lineHeight: 20
-      },
-      left: '10%',
-      top: '90%'
-    }
-  ],
-  dataset: [
-    {
-      // prettier-ignore
-      source: [
-                [850, 740, 900, 1070, 930, 850, 950, 980, 980, 880, 1000, 980, 930, 650, 760, 810, 1000, 1000, 960, 960],
-                [960, 940, 960, 940, 880, 800, 850, 880, 900, 840, 830, 790, 810, 880, 880, 830, 800, 790, 760, 800],
-                [880, 880, 880, 860, 720, 720, 620, 860, 970, 950, 880, 910, 850, 870, 840, 840, 850, 840, 840, 840],
-                [890, 810, 810, 820, 800, 770, 760, 740, 750, 760, 910, 920, 890, 860, 880, 720, 840, 850, 850, 780],
-                [890, 840, 780, 810, 760, 810, 790, 810, 820, 850, 870, 870, 810, 740, 810, 940, 950, 800, 810, 870]
-            ]
-    },
-    {
-      transform: {
-        type: 'boxplot',
-        config: { itemNameFormatter: 'expr {value}' }
-      }
-    },
-    {
-      fromDatasetIndex: 1,
-      fromTransformResult: 1
-    }
-  ],
-  tooltip: {
-    trigger: 'item',
-    axisPointer: {
-      type: 'shadow'
-    }
-  },
-  grid: {
-    left: '10%',
-    right: '10%',
-    bottom: '15%'
-  },
-  xAxis: {
-    type: 'category',
-    boundaryGap: true,
-    nameGap: 30,
-    splitArea: {
-      show: false
-    },
-    splitLine: {
-      show: false
-    }
-  },
-  yAxis: {
-    type: 'value',
-    name: 'km/s minus 299,000',
-    splitArea: {
-      show: true
-    }
-  },
-  series: [
-    {
-      name: 'boxplot',
-      type: 'boxplot',
-      datasetIndex: 1
-    },
-    {
-      name: 'outlier',
-      type: 'scatter',
-      datasetIndex: 2
-    }
-  ]
-};
-chartInstance1.setOption(option1);
-
-  //chart3
-  let chartInstance2 = echarts.init(chartRef2.value);
-  var option2 = {
-  title: {
-    text: '能力图'
-  },
-  legend: {
-    data: ['项目1', '项目2']
-  },
-  radar: {
-    // shape: 'circle',
-    indicator: [
-      { name: '项目周期', max: 6500 },
-      { name: '达成率', max: 16000 },
-      { name: '延迟率', max: 30000 },
-      { name: 'bug率', max: 38000 },
-      { name: 'bug解决率', max: 52000 },
-      { name: '收益率', max: 25000 }
-    ]
-  },
-  series: [
-    {
-      name: 'Budget vs spending',
-      type: 'radar',
-      data: [
-        {
-          value: [4200, 3000, 20000, 35000, 50000, 18000],
-          name: '项目1'
-        },
-        {
-          value: [5000, 14000, 28000, 26000, 42000, 21000],
-          name: '项目2'
-        }
-      ]
-    }
-  ]
-};
-chartInstance2.setOption(option2)
   })
-
-
 
 const formInline = reactive({
   user: '',
@@ -422,7 +332,7 @@ const onSubmit = () => {
 
 import type { TabsPaneContext } from 'element-plus'
 
-const activeName = ref('2')
+const activeName = ref('second')
 
 const handleClick = (tab: TabsPaneContext, event: Event) => {
   console.log(tab, event)

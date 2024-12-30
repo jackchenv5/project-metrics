@@ -9,16 +9,16 @@ const router = createRouter({
       name: 'software-cycle',
       component: SoftwareCycle
     },
-    {
-      path: '/hardware-cycle',
-      name: 'hardware-cycle',
-      component: () => import('@/views/HardwareCycle.vue')
-    },
-    {
-      path: '/gantt/:project_id',
-      name: 'gantt',
-      component: () => import('@/views/gantt/ProjectGantt.vue')
-    },
+    // {
+    //   path: '/hardware-cycle',
+    //   name: 'hardware-cycle',
+    //   component: () => import('@/views/HardwareCycle.vue')
+    // },
+    // {
+    //   path: '/gantt/:project_id',
+    //   name: 'gantt',
+    //   component: () => import('@/views/gantt/ProjectGantt.vue')
+    // },
   ]
 })
 
